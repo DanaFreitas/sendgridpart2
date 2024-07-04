@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Part 2</title>
+    <link rel="stylesheet" href="sendgridpart2.css" type="text/css" />
+
+</head>
+<body>
+    
+<form id="testform" action="/submit" method="POST">
+
+    <label for="To">to:</label><br>
+    <input type="email" id="To" name="To" value=""><br>
+   
+    <label for="from">from:</label><br>
+    <input type="email" id="From" name="From" value=""><br><br>
+   
+    <label for="Subject">subject:</label><br>
+    <input type="text" id="Subject" name="Subject" value=""><br><br>
+   
+    <label for="Message">message:</label><br>
+    <textarea
+    id="Message"
+    name="Message"
+    placeholder="Tell me your thoughts here."
+    class="inputitem"
+  ></textarea
+  ><br />
+   
+    <input type="submit" value="Submit">
+  
+
+
+</form>
+    
+
+</body>
+<script src="declaration.js"></script>
+<script src="app.js"></script>
+</html>

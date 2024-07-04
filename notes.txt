@@ -1,0 +1,63 @@
+7/1  
+I should use res get to get...
+    do I set up the html with it 
+        OOORRR
+    do I use it to get the inputted info
+I should use res send to send the info to an email
+
+I had app.get and app.listen crossing wires with each other, which is why the code didnt work
+
+
+ 
+ app.get('/', (req, res) => {
+   app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+   });
+
+
+
+I figured out path. I use() to set up the route I will want to take. if its direct, use __dirname
+    dont forget express.static
+
+Then, I will  use res.send to sedn out the static site 
+
+What I need to do next is to be able to declare variables for the static inputs
+I also need a way for the progrma to be able to access them. 
+
+7/2
+
+
+module.export tells you what to export from another file
+    module.exports = divisor
+require will import the thing from the other file
+    const divisor = require('./declaration.js')
+
+
+I need to have a way to record inputs
+
+Try having the values based on sendform...will likely need to know "proper order" to have code  
+    i suspect it will run in app.js and the first thing will be to import the values from declaration.js
+
+
+7/3
+
+Body parser is what is needed for processing info from an http request body
+
+action vs onsubmit 
+    omsubmit runs js that effects the client
+        if dont want a preload, will need preventdefault
+    action sends the info to a server
+        will reload the page
+
+action="url" is the location where the backend code takes place
+
+I dont think I need a template engine 
+
+const app = express();
+
+
+I  need to check the site. HAve way to print what was encoded
+rember the console log does to the terminal. not the livesercer
+
+req.body helps 
+    it can define the inputs, like in the console.log
