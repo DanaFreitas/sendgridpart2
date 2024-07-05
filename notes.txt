@@ -61,3 +61,16 @@ rember the console log does to the terminal. not the livesercer
 
 req.body helps 
     it can define the inputs, like in the console.log
+
+7/4
+
+there a 202, but I recieve nothing. I will need to hook it up to cloudflare do make sure the sendgrid works. I need a host besides the 3000 localohost
+
+So I need to put the url on sendgrid.
+to do that I need to set up on cloudflare.
+To do that, I need to change the localhost.
+To do that I need to put the url on sendgrid.
+
+Gonna try without first setting up the node. That might help to establish the initial url.
+
+possible issue: I cant have index.html be in a folder besides docs

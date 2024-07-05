@@ -24,14 +24,14 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //app.use(bodyParser.json())
 
 
-const PORT = 3000; // Defining PORT
+//const PORT = 3000; // Defining PORT
 
-app.use(express.static(path.join(__dirname,'public')))
+app.use(express.static(path.join(__dirname)))
 
 
 
  app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+  res.sendFile(path.join(__dirname, 'index.html'))
   res.sendFile(path.join(__dirname,  'sendgridpart2.css'))
 
 
