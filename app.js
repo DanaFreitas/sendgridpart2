@@ -2,37 +2,68 @@
 // //The good ones
 
 
-// function SendForm() {
-//   console.log("Monkey")
-// };
 
 
 
 
-require("dotenv").config();
+//require("dotenv").config();
+//import "dotenv/app.js";
+ //const http = require("http");
+//const express = require("express");
+//const path = require("node:path");
+//const bodyParser = require('body-parser')
+//app.use(bodyParser.json())
+
+//import path from 'path'
+//import { fileURLToPath } from 'url';
+//import {dirname} from 'path';
+
+
+const PORT = 3000; // Defining PORT
+
+
+//import * as dotenv from 'dotenv'
+import express from 'express'
+//import APIKEY from 'dotenv'
+//const APIKEY = APIKEY;
+process.loadEnvFile()
 
 
 
-// const http = require("http");
-const express = require("express");
+console.log(process.env.API_KEY)
+import bodyParser from 'body-parser'
+//console.log(APIKEY)
+
+//dotenv.config()
 const app = express();
-const path = require("node:path");
-const bodyParser = require('body-parser')
+
+
+
+
+const __dirname = import.meta.dirname  // The current module's directory name
+//console.log(__dirname)
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-//app.use(bodyParser.json())
 
-
-//const PORT = 3000; // Defining PORT
-
-app.use(express.static(path.join(__dirname)))
-
+//app.use(express.static(path.join(__dirname)))
+//app.use(express.static(__dirname))
 
 
  app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'))
-  res.sendFile(path.join(__dirname,  'sendgridpart2.css'))
+
+   console.log(process.env.API_KEY)
+
+   process.loadEnvFile()
+ //  console.log(process.env.API_KEY)
+   
+
+   const indexpath = new URL('./index.html', import.meta.url)
+ //  console.log(indexpath)
+     const csspath = new URL('./sendgridpart2.css', import.meta.url)
+
+  //res.sendFile(path.join(__dirname, 'index.html'))
+  //res.sendFile(path.join(__dirname,  'sendgridpart2.css'))
 
 
   

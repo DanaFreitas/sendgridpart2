@@ -74,3 +74,45 @@ To do that I need to put the url on sendgrid.
 Gonna try without first setting up the node. That might help to establish the initial url.
 
 possible issue: I cant have index.html be in a folder besides docs
+Made new branch. Will try reploying the pages.
+
+The html locationw as the issue.
+
+soo... I can now deploy to sendgrid
+
+
+
+So what I just did was deploy the sendgrid site on cloudflare. that was successful. I need to add a bunch of dns records from sendgrid.
+So what I need to do is transfer them
+but...
+do i send to the cloudflare page or the github page
+    likely whichever is easier
+
+
+I have made the website with cloudflare
+    so now I have a source I can send to with sendgrid.
+    so now I can stuff all of those dns records in there. 
+    then it willl hopefully just be a matter of removing the server name from the code
+
+
+7/6
+require("dotenv").config(); has the error "require is not defined"
+
+the issue is that it seems to binhabit the baseline js code and not node.js
+
+a solutiion MIGHT be to switch to import/export
+
+
+    added type:module 
+
+
+I am trying to make the dotenv an import. Using sendgrid version1.
+
+
+process.loadEnvFile()
+I dont need dotenv anymore
+
+import/export updatse means
+__dirname is obsolete
+require() is obsolete
+dotenv is obsolete?
