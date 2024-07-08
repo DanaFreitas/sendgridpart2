@@ -6,64 +6,64 @@
 
 
 
-//require("dotenv").config();
-//import "dotenv/app.js";
  //const http = require("http");
 //const express = require("express");
 //const path = require("node:path");
 //const bodyParser = require('body-parser')
 //app.use(bodyParser.json())
 
-//import path from 'path'
-//import { fileURLToPath } from 'url';
+//import * as  path from 'path'
+ //import {path} from './package.json';
+
 //import {dirname} from 'path';
+//import * as url from 'url';
+import url from 'node:url';
+//const path = require('node:path');
+import path from 'path';
+import {fileURLToPath} from 'url';
+  //does this not matter
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = import.meta.dirname;
+
 
 
 const PORT = 3000; // Defining PORT
 
 
-//import * as dotenv from 'dotenv'
 import express from 'express'
-//import APIKEY from 'dotenv'
-//const APIKEY = APIKEY;
-process.loadEnvFile()
-
-
-
-console.log(process.env.API_KEY)
 import bodyParser from 'body-parser'
-//console.log(APIKEY)
 
-//dotenv.config()
+process.loadEnvFile()
+//console.log(process.env.API_KEY)
+
+
 const app = express();
 
 
 
 
-const __dirname = import.meta.dirname  // The current module's directory name
-//console.log(__dirname)
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
-//app.use(express.static(path.join(__dirname)))
+ app.get('/', (req, res) => {
+  
+  
+//app.use(express.static(path.join(__filename)))
+
 //app.use(express.static(__dirname))
 
-
- app.get('/', (req, res) => {
-
-   console.log(process.env.API_KEY)
-
-   process.loadEnvFile()
- //  console.log(process.env.API_KEY)
+//console.log(__dirname)
    
 
-   const indexpath = new URL('./index.html', import.meta.url)
+ //  const indexpath = new URL('./index.html', import.meta.url)
  //  console.log(indexpath)
-     const csspath = new URL('./sendgridpart2.css', import.meta.url)
+   //  const csspath = new URL('./sendgridpart2.css', import.meta.url)
 
-  //res.sendFile(path.join(__dirname, 'index.html'))
-  //res.sendFile(path.join(__dirname,  'sendgridpart2.css'))
+   res.sendFile(path.join(__dirname, import.meta.url))
+
+ res.sendFile(path.join(__dirname, 'index.html'))
+res.sendFile(path.join(__dirname,  'sendgridpart2.css'))
 
 
   
@@ -75,7 +75,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
  
    app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-    
+    console.log(__filename)
+    console.log(__dirname)
+      
    })
 
 

@@ -116,3 +116,41 @@ import/export updatse means
 __dirname is obsolete
 require() is obsolete
 dotenv is obsolete?
+
+process.loadEnvFile() is now successful.
+What I need? To try to do now is figure out what to do about the server.
+
+I need to fixx the __dirname bits. That also needs to be updated
+
+I have been able to stop errors, but the screen is still blavk. need to do lots of console.logs. 
+
+
+7/7
+
+//import * as  path from 'path'
+    This is an object with all of the exports of path compiled.
+import path from 'path';
+    this is the default export
+
+
+Uncaught SyntaxError: import declarations may only appear at top level of a module meaning
+    Import cannot be in a function or a block
+        or...
+    the file is not interpreted as a module
+
+If I add type="module" to the js script tag, I get
+    Uncaught TypeError: The specifier “path” was a bare specifier, but was not remapped to anything. Relative module specifiers must start with “./”, “../” or “/”.
+
+    wbats url to path?
+
+
+7/8
+
+url sets up the url being altered
+path turns the url into a relative path to be altered
+
+__filename is the name of the file. __dirname is the name of its parent
+
+  console.log(__filename)
+  console.log(__dirname)
+  They work perfectly. I just need a way to append the html code to the ends. 
