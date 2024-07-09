@@ -154,3 +154,23 @@ __filename is the name of the file. __dirname is the name of its parent
   console.log(__filename)
   console.log(__dirname)
   They work perfectly. I just need a way to append the html code to the ends. 
+
+
+I needed to add app.use(express.static(path.join(__dirname)))
+    Now I need to convert the sendgrid to the es6 standard
+
+Now I have API key does not start with "SG."
+    I asked chatgpt. Some ideas I suspect might be the problem include
+            the current api key needing to be replaced.
+                check the sendgrid apikey stuff
+            the envirornmental variables
+                but...with the right console.log, the api key DOES appear correctly
+
+
+    ReferenceError: API_KEY is not defined
+    at file:///C:/Users/danar/WebDevProjects/sendgridpart2/app.js:43:18
+
+    API key does not start with "SG.".
+[object Object] is after the post
+
+I need to make sure API_KEY is defined somewhere 

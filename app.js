@@ -1,99 +1,46 @@
-
 // //The good ones
 
+import url from "node:url";
+import path from "path";
+import { fileURLToPath } from "url";
+//does this not matter
+import express from "express";
+import bodyParser from "body-parser";
+import { MailService } from "@sendgrid/mail";
 
-
-
-
-
- //const http = require("http");
-//const express = require("express");
-//const path = require("node:path");
-//const bodyParser = require('body-parser')
-//app.use(bodyParser.json())
-
-//import * as  path from 'path'
- //import {path} from './package.json';
-
-//import {dirname} from 'path';
-//import * as url from 'url';
-import url from 'node:url';
-//const path = require('node:path');
-import path from 'path';
-import {fileURLToPath} from 'url';
-  //does this not matter
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = import.meta.dirname;
 
-
-
 const PORT = 3000; // Defining PORT
 
+const sgMail = new MailService();
 
-import express from 'express'
-import bodyParser from 'body-parser'
+//sendgridClient.setApiKey(process.env.SENDGRID_API_KEY || "");
+//doubt ill need
 
-process.loadEnvFile()
-//console.log(process.env.API_KEY)
-
-
+process.loadEnvFile();
+console.log(process.env.API_KEY);
 const app = express();
+app.use(express.static(path.join(__dirname)));
+app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, import.meta.url));
+  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "sendgridpart2.css"));
 
-
-
-
-app.use(bodyParser.urlencoded({ extended: true }))
-
-
- app.get('/', (req, res) => {
-  
-  
-//app.use(express.static(path.join(__filename)))
-
-//app.use(express.static(__dirname))
-
-//console.log(__dirname)
-   
-
- //  const indexpath = new URL('./index.html', import.meta.url)
- //  console.log(indexpath)
-   //  const csspath = new URL('./sendgridpart2.css', import.meta.url)
-
-   res.sendFile(path.join(__dirname, import.meta.url))
-
- res.sendFile(path.join(__dirname, 'index.html'))
-res.sendFile(path.join(__dirname,  'sendgridpart2.css'))
-
-
-  
   res.end();
 });
 
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+  console.log(__filename);
+  console.log(__dirname);
+});
 
-
- 
-   app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    console.log(__filename)
-    console.log(__dirname)
-      
-   })
-
-
-   
-// app.post ('/submit', (req, res) =>{
-// console.log('To' + req.body.To)
-// console.log('From' + req.body.From)
-// })
-
-app.post ('/submit', (req,res) => {
-
-
-
-
- const sgMail = require("@sendgrid/mail");
- sgMail.setApiKey(process.env.APIKEY);
+app.post("/submit", (req, res) => {
+  sgMail.setApiKey(process.env.API_KEY);
+  console.log(`${sgMail} is after the post` );
   const msg = {
     to: req.body.To,
     from: req.body.From, // Use the email address or domain you verified above
@@ -104,19 +51,13 @@ app.post ('/submit', (req,res) => {
   sgMail
     .send(msg)
     .then((response) => {
-     console.log(response[0].statusCode);
+      console.log(response[0].statusCode);
       console.log(response[0].headers);
-   })
-   .catch((error) => {
+    })
+    .catch((error) => {
       console.error(error);
-   });
-
-})
-
-
-
-
-
+    });
+});
 
 //  require("dotenv").config();
 
@@ -134,8 +75,3 @@ app.post ('/submit', (req,res) => {
 //  httpServer.listen(PORT, () => {
 //    console.log(`Server in ${process.env.STATUS} mode, listening on *:${PORT}`)
 //  });
-
-
-
-
-
