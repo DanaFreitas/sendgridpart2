@@ -174,3 +174,42 @@ Now I have API key does not start with "SG."
 [object Object] is after the post
 
 I need to make sure API_KEY is defined somewhere 
+    Tried APIKEY but that doesnt make sense. 
+    Will do reseatch tomorrow
+
+    7/10
+
+sgmail is just being empty objects
+    need to properly connect
+trying to alter the imports
+
+I try adding the apikey in the post. move the loadenvfile there 
+    it says the api key isnt defined
+        if it me changing the import?   
+    No.
+
+Moving the keyupapikey to the opening doesnt change the local of an api ky being defined
+
+process.env.API_KEY will show the api key but API_KEY wont.
+
+process is...
+
+I need to import process
+
+I noticed that "API_KEY doesnt start with "SG." begins onload.
+    but when the key is printed. It shows up just fine. 
+
+
+replacing 
+
+loadEnvFile();
+
+with 
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+gave a 202!
+
+went to sender authentification on sendgrid. 
+Also commented out all of he port stuff. 

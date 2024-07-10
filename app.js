@@ -6,20 +6,28 @@ import { fileURLToPath } from "url";
 //does this not matter
 import express from "express";
 import bodyParser from "body-parser";
-import { MailService } from "@sendgrid/mail";
+//import { MailService } from "@sendgrid/mail";
+import sgMail from '@sendgrid/mail';
+import process from 'node:process';
+import { loadEnvFile } from 'node:process';
+//sgMail.setApiKey(process.env.API_KEY);
+import dotenv from 'dotenv';
+dotenv.config();
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = import.meta.dirname;
 
-const PORT = 3000; // Defining PORT
+//const PORT = 3000; // Defining PORT
 
-const sgMail = new MailService();
+//const sgMail = new MailService();
 
 //sendgridClient.setApiKey(process.env.SENDGRID_API_KEY || "");
 //doubt ill need
+//process.
+//loadEnvFile();
+const apikey = process.env.API_KEY;
 
-process.loadEnvFile();
-console.log(process.env.API_KEY);
+
 const app = express();
 app.use(express.static(path.join(__dirname)));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,19 +36,20 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, import.meta.url));
   res.sendFile(path.join(__dirname, "index.html"));
   res.sendFile(path.join(__dirname, "sendgridpart2.css"));
-
   res.end();
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(__filename);
-  console.log(__dirname);
-});
+//app.listen(PORT, () => {
+ //// console.log(`Server running on port ${PORT}`);
+  
+//});
 
 app.post("/submit", (req, res) => {
-  sgMail.setApiKey(process.env.API_KEY);
-  console.log(`${sgMail} is after the post` );
+console.log(`${apikey} is the apikey`)
+  sgMail.setApiKey(apikey)
+
+  //  sgMail.setApiKey(process.env.API_KEY);
+  
   const msg = {
     to: req.body.To,
     from: req.body.From, // Use the email address or domain you verified above
