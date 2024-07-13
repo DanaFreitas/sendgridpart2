@@ -15,7 +15,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = import.meta.dirname;
+//const __dirname = import.meta.dirname;
+const __dirname = import.meta.filename;
 
 const PORT = 3000; // Defining PORT
 
@@ -29,7 +30,6 @@ const apikey = process.env.API_KEY;
 
 
 const app = express();
-comsole.log(path)
 app.use(express.static(path.join(__dirname)));
 app.use(bodyParser.urlencoded({ extended: true }));
 
