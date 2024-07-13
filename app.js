@@ -9,7 +9,7 @@ import bodyParser from "body-parser";
 //import { MailService } from "@sendgrid/mail";
 import sgMail from '@sendgrid/mail';
 import process from 'node:process';
-import { loadEnvFile } from 'node:process';
+//import { loadEnvFile } from 'node:process';
 //sgMail.setApiKey(process.env.API_KEY);
 import dotenv from 'dotenv';
 dotenv.config();
