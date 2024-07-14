@@ -213,3 +213,10 @@ gave a 202!
 
 went to sender authentification on sendgrid. 
 Also commented out all of he port stuff. 
+
+
+
+7/13
+
+//Uncaught TypeError: The specifier “path” was a bare specifier, but was not remapped to anything.
+ Relative module specifiers must start with “./”, “../” or “/”.
