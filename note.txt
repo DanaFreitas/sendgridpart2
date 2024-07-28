@@ -1,0 +1,118 @@
+In practice 2, I have been able to display the json.
+
+Eed to figure out how to both
+    make it display on console.log
+    AND
+    make it send to me
+
+    ReferenceError: msg is not defined
+
+    have run on load , not /
+
+    maybe test with stmp
+
+        not really work
+
+problem with the key
+
+maybe need to do the simplest js email stuff
+
+or go back and compare with earlier code
+
+7/20
+
+trying to properly wrap the POST into a function. I think that might be a big difference
+
+the api ley is set ip. I just need...something to happen
+
+should try to have the json show up on browser. prove its...there
+
+res.send will send the json...
+I need to figure out how to send the json to the email
+
+
+I managed to get the most MOST basic thing to get a 202...but not send. 
+I looked around and a possible answer is the review ticket. I deleted what I think was the issue. I will give it until tomorrow.
+
+
+7/21
+
+Message queue continuously deferred for too long. See https://sendgrid.com/docs/glossary/throttling/#what-causes-a-deferral
+
+sengrid says it go thte email but SOMETHING is stopping it from going to gmail
+
+
+possible soluation: new api key
+confirm the domain with dns records.
+dropped by google
+    invalid email address
+    blocked email
+the dynamic template wasnt set to active
+    no error would be shown
+change "from email" to "register email"
+
+
+
+reputation is fine
+sendgrid itself doesnt havea aproblem with it
+
+send yo my email gives 202. send to temp email gives 403
+I think its it being FROM gmail that gives it a 202
+
+the records show the temp email not expisting in activity food. may need to make a dummy email. a permenant one
+
+
+
+7/21
+
+replaced with proton.me and need to verify the email on sendgrid. 
+    getting 403 errors on that. hopefully this will fix that.
+    might be a problem with gmail itself.
+
+also, check the stack exchange answere
+
+
+7/22
+
+used single sender verifictaion
+tried with proton mail.
+awaiting answer
+
+7/24
+
+There is no sign of protonmail working either. The answer must be with the sendgrid sending itself
+
+There could be a blacklist for sendgrid in general.
+
+
+7/25
+
+You are trying to send this email behalf of google (gmail.com) domain and every email client will see this as fraudulent email. 
+It would literally be same if as I would use your email address to send mails from my computer without any authentication - it wont work.
+
+If you want to use services like mailgun or sendgrid or any other you will need 
+to own a domain and and go through verification process where you prove that domain is under your control 
+and you are giving rights to mailing service to send mails behalf of your domain (DKIM).
+
+What you do currently is expected - this should never work.
+
+Configure a domain for sender authentication and use that, instead of trying to use an Gmail as the from address.
+
+7/27
+
+I need to configure DMARC records.
+    The DMARC record records which domains I can send from         
+            sendgridtesting.uk
+        If I use sendgridtesting as a "from" for the email address, I get an error.
+
+
+need to get the keys back
+
+Got back
+
+now "from sendgridtesting.uk" is a 400 response
+    bad syntax
+
+Issue: I need the "from" to be an email
+I need the DMARC to be a url
+If I have the url set up, maybe I can use the url to cause the email to be sent
