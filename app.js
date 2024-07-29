@@ -1,12 +1,11 @@
 
-import url from "node:url";
+import url from "url";
 import path from "path";
 import { fileURLToPath } from "url";
 
-//Uncaught TypeError: The specifier “path” was a bare specifier, but was not remapped to anything. Relative module specifiers must start with “./”, “../” or “/”.
-
   //Not sure why the value is never read. 
 import express from "express";
+//import * as express from "express";
 import bodyParser from "body-parser";
 import sgMail from '@sendgrid/mail';
 import process from 'node:process';
@@ -20,7 +19,7 @@ console.log(__filename)
 const __dirname = path.dirname(__filename)
 console.log(__dirname)
 
-//const PORT = 3000; // Defining PORT
+const PORT = 3000; // Defining PORT
   //This was for the localhost. 
 
 const apikey = process.env.API_KEY;
@@ -41,10 +40,10 @@ app.get("/", (req, res) => {
 
 
 
-//app.listen(PORT, () => {
- // console.log(`Server running on port ${PORT}`);
+app.listen(PORT, () => {
+ console.log(`Server running on port ${PORT}`);
   
-// })
+ })
 
 
 app.post("/submit", (req, res) => {
@@ -57,14 +56,16 @@ app.post("/submit", (req, res) => {
     subject: req.body.Subject,
     text: req.body.Message,
     html: req.body.Message,
+    
   };
   sgMail
     .send(msg)
     .then((response) => {
       console.log(response[0].statusCode);
       console.log(response[0].headers);
-    })
+console.log(msg)    })
     .catch((error) => {
       console.error(error);
     });
+    
 });

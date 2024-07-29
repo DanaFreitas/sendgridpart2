@@ -220,3 +220,88 @@ Also commented out all of he port stuff.
 
 //Uncaught TypeError: The specifier “path” was a bare specifier, but was not remapped to anything.
  Relative module specifiers must start with “./”, “../” or “/”.
+    the other dependencies are in the package.json for abosolute locations
+    how do i specify it if its inbuilt
+        node:path
+
+ There is an issue with bare module imports,
+  which are when only the name of a package or file in a package are imported and not a specific location
+
+  I add "type": "module" to the json file to make the dependencies packages
+  path is a built in module
+  cant import in blocks
+
+
+  app.listen(PORT, () => {
+ console.log(`Server running on port ${PORT}`);
+ })
+    needs to be available for the localhost to work
+
+
+7/14    
+import maps have to be AFTER the module load or preload
+
+
+worked
+
+
+import url from "node:url";
+Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at node:url. (Reason: CORS request not http).
+
+Module source URI is not allowed in this document: “node:url”.
+
+need to figure out the default ones.
+
+
+If I use import express from "express";, I get 
+    Uncaught TypeError: The specifier “path” was a bare specifier, but was not remapped to anything.
+    Relative module specifiers must start with “./”, “../” or “/”.
+
+This happeneed for the first 3 dependencies, but I used "node:..."
+    I doubt itll work here because it isnt a default dependency
+
+
+If I do //import * as express from "express"; I get 
+    express is not a function relative to 
+    const app = express();
+
+
+or maybe import maps?
+
+import express from "node:express";
+     No such built-in module: node:express
+
+If I remove the type="module", from app.js declaraction, I get 
+    import declarations may only appear at top level of a module
+
+
+maybe conert .js to .ejs?
+    That didnt do anything
+
+
+
+https://dev.to/thepassle/the-javascript-ecosystem-for-the-dazed-and-confused-36il
+seems like an important way to help olve the issue 
+so is https://www.npmjs.com/package/@rollup/plugin-node-resolve
+    but look around for better options
+
+for the site proper, got error  405 Method Not Allowed
+    confiirms earlier issues
+
+suspect issue is some sort of preprocessir 
+
+imported rollup'
+
+error
+rollup-config.js was blocked because of a disallowed MIME type (“text/html”).
+
+
+maybe use webpack instead?
+
+bundlers need to be run from package.json scripts,build
+
+
+7/15
+
+import maps have been working out. 
+issue is what about built-in modules?
