@@ -19,7 +19,7 @@ console.log(__filename)
 const __dirname = path.dirname(__filename)
 console.log(__dirname)
 
-const PORT = 3000; // Defining PORT
+//const PORT = 3000; // Defining PORT
   //This was for the localhost. 
 
 const apikey = process.env.API_KEY;
@@ -40,10 +40,10 @@ app.get("/", (req, res) => {
 
 
 
-app.listen(PORT, () => {
- console.log(`Server running on port ${PORT}`);
+//app.listen(PORT, () => {
+ //console.log(`Server running on port ${PORT}`);
   
- })
+// })
 
 
 app.post("/submit", (req, res) => {
