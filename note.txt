@@ -116,3 +116,117 @@ now "from sendgridtesting.uk" is a 400 response
 Issue: I need the "from" to be an email
 I need the DMARC to be a url
 If I have the url set up, maybe I can use the url to cause the email to be sent
+
+
+I managed to get some.... of it added. the issue is the node ALSO says
+
+
+7/29
+
+was blocked because of a disallowed MIME type (“text/html”).
+
+go back to the earlier one because i am likely missing some imports?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import url from "node:url";
+import path from "path";
+import { fileURLToPath } from "url";
+
+//Uncaught TypeError: The specifier â€œpathâ€ was a bare specifier, but was not remapped to anything. Relative module specifiers must start with â€œ./â€, â€œ../â€ or â€œ/â€.
+
+  //Not sure why the value is never read. 
+import express from "express";
+import bodyParser from "body-parser";
+import sgMail from '@sendgrid/mail';
+import process from 'node:process';
+import dotenv from 'dotenv';
+dotenv.config();
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const __filename = url.fileURLToPath(import.meta.url);
+console.log(__filename)
+const __dirname = path.dirname(__filename)
+console.log(__dirname)
+
+//const PORT = 3000; // Defining PORT
+  //This was for the localhost. 
+
+const apikey = process.env.API_KEY;
+
+
+
+
+app.use(express.static(path.join(__dirname)));
+
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, import.meta.url));
+  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "sendgridpart2.css"));
+  res.end();
+});
+//They key is connecting this...somehow
+
+
+
+//app.listen(PORT, () => {
+ // console.log(`Server running on port ${PORT}`);
+  
+// })
+
+
+app.post("/submit", (req, res) => {
+  sgMail.setApiKey(apikey)
+
+  
+  const msg = {
+    to: req.body.To,
+    from: req.body.From, 
+    subject: req.body.Subject,
+    text: req.body.Message,
+    html: req.body.Message,
+  };
+  sgMail
+    .send(msg)
+    .then((response) => {
+      console.log(response[0].statusCode);
+      console.log(response[0].headers);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+});
+
+The node isnt synced up. 
+
+Loading module from “https://f6cf9694.sendgridpart2.pages.dev/node_modules/dotenv/app.js” was blocked because of a disallowed MIME type (“text/html”).
+
+This needs to be worked on. 
+
+
+7/31 try from basica agai. have the single sender confirmed. 
+
+why 401, unauthorized now?

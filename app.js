@@ -1,34 +1,33 @@
 
-//import url from "url";
+///import url from "url";
 //import path from "path";
 //import bodyParser from "body-parser";
 
   //Not sure why the value is never read. 
-        //import express from "express";
-        //import nodemon from "nodemon";
-//const sgMail = require('@sendgrid/mail')
+   //     import express from "express";
+  //      import nodemon from "nodemon";
+
         import sgMail from '@sendgrid/mail';
-        //import process from 'node:process';
-      import dotenv from 'dotenv';
-        dotenv.config();
-        //const app = express();
+     //   import process from 'node:process';
+     import dotenv from 'dotenv';
+       dotenv.config();
+   //    const app = express();
 //const __filename = url.fileURLToPath(import.meta.url);
 //const __dirname = path.dirname(__filename)
 //app.use(express.static(path.join(__dirname)));
 
-        //const PORT = 3000; // Defining PORT
+ //       const PORT = 3000; // Defining PORT
 
         //app.use(express.json());
         //app.use(express.urlencoded({ extended: true }));
 //app.use(bodyParser.urlencoded({ extended: true }));
 
-        const apikey = process.env.API_KEY;
-        
-
+       // const apikey = process.env.API_KEY;
+        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 //req.body
 
 //app.get('/', function(req,res) {
-  sgMail.setApiKey(apikey)
+  //sgMail.setApiKey(apikey)
   
  // res.send({ title: 'GeeksforGeeks' });
   
@@ -46,8 +45,8 @@
 //     //subject: req.body.Subject,
 //     //text: req.body.Message,
 //     //html: req.body.Message,
-     to: "xinabox307@digdy.com",
-     from: "xinabox307@digdy.com",
+     to: "danarobertfreitas@gmail.com",
+     from: "danarobertfreitas@gmail.com",
      subject: "Message",
      text: "Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.",
      html: '<h1>Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.</h1>',
@@ -79,7 +78,7 @@
 
   
 //app.listen(PORT, () => {
-  //console.log(`Server running on port ${PORT}`);
+//console.log(`Server running on port ${PORT}`);
 //})
 //console.log(`${msg} is msg`)
 //console.log(`${sgMail} is msg`)
