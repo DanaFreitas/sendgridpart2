@@ -15,9 +15,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const __filename = url.fileURLToPath(import.meta.url);
-console.log(__filename)
 const __dirname = path.dirname(__filename)
-console.log(__dirname)
 
 ////const PORT = 3000; // Defining PORT
   //This was for the localhost. 
@@ -52,11 +50,17 @@ app.get("/", (req, res) => {
   from: 'danafreitas@proton.me',
   subject: 'Message',
   text: 'Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.',
-  html: '<h1>Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.</h1>',
+  html: '<h1>Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.</h1>'
  
 
  };
 
+console.log(typeof 'msg')
+ console.log(`The message is ${msg}`)
+
+//const parsedData = JSON.parse(msg)
+
+//console.log(parsedData)
 
  sgMail
  .send(msg)
