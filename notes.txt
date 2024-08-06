@@ -305,3 +305,39 @@ bundlers need to be run from package.json scripts,build
 
 import maps have been working out. 
 issue is what about built-in modules?
+
+
+7/27
+
+I need to configure DMARC records.
+    The DMARC record records which domains I can send from         
+            sendgridtesting.uk
+        If I use sendgridtesting as a "from" for the email address, I get an error.
+
+
+need to get the keys back
+
+Got back
+
+now "from sendgridtesting.uk" is a 400 response
+    bad syntax
+
+Issue: I need the "from" to be an email
+I need the DMARC to be a url
+If I have the url set up, maybe I can use the url to cause the email to be sent
+
+
+
+7/29
+
+an issue is that the from is meant to be from an email adddress but the DMARC is a url
+
+
+went to the domain registration on sendgrid and added a line ot the cloudflare server. MIGHT have to delate an earlier txt file.
+
+I DID get an email activity report, so SOMETHING happened
+
+
+7/30
+
+I need the from email to be ..."from sendgridtesting.uk"

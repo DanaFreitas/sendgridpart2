@@ -1,7 +1,7 @@
 
 import url from "url";
 import path from "path";
-import { fileURLToPath } from "url";
+//import { fileURLToPath } from "url";
 
   //Not sure why the value is never read. 
 import express from "express";
@@ -19,12 +19,13 @@ console.log(__filename)
 const __dirname = path.dirname(__filename)
 console.log(__dirname)
 
-//const PORT = 3000; // Defining PORT
+////const PORT = 3000; // Defining PORT
   //This was for the localhost. 
 
 const apikey = process.env.API_KEY;
 
 
+   sgMail.setApiKey(apikey)
 
 
 app.use(express.static(path.join(__dirname)));
@@ -40,32 +41,57 @@ app.get("/", (req, res) => {
 
 
 
-//app.listen(PORT, () => {
- //console.log(`Server running on port ${PORT}`);
+// app.listen(PORT, () => {
+// console.log(`Server running on port ${PORT}`);
   
-// })
+//  })
 
 
-app.post("/submit", (req, res) => {
-  sgMail.setApiKey(apikey)
+ const msg = {
+  to:'danafreitas@proton.me',
+  from: 'danafreitas@proton.me',
+  subject: 'Message',
+  text: 'Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.',
+  html: '<h1>Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.</h1>',
+ 
 
-  
-  const msg = {
-    to: req.body.To,
-    from: req.body.From, 
-    subject: req.body.Subject,
-    text: req.body.Message,
-    html: req.body.Message,
-    
-  };
-  sgMail
-    .send(msg)
-    .then((response) => {
-      console.log(response[0].statusCode);
-      console.log(response[0].headers);
+ };
+
+
+ sgMail
+ .send(msg)
+ .then((response) => {
+   console.log(response[0].statusCode);
+   console.log(response[0].headers);
 console.log(msg)    })
-    .catch((error) => {
-      console.error(error);
-    });
+ .catch((error) => {
+   console.error(error),
+   console.error('Error sending email:', error.response.body);
+ });
+
+
+ //This isnt part of the atutomatic trigger. 
+
+// app.post("/submit", (req, res) => {
+//   sgMail.setApiKey(apikey)
+
+  
+//   const msg = {
+//     to: req.body.To,
+//     from: req.body.From, 
+//     subject: req.body.Subject,
+//     text: req.body.Message,
+//     html: req.body.Message,
     
-});
+//   };
+//   sgMail
+//     .send(msg)
+//     .then((response) => {
+//       console.log(response[0].statusCode);
+//       console.log(response[0].headers);
+// console.log(msg)    })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+    
+// });
