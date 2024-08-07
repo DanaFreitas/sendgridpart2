@@ -50,7 +50,7 @@ app.get("/", (req, res) => {
   from: 'danafreitas@proton.me',
   subject: 'Message',
   text: 'Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.',
-  html: '<h1>Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.</h1>'
+  html: '<h1>Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.</h1>',
  
 
  };
