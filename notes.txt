@@ -341,3 +341,30 @@ I DID get an email activity report, so SOMETHING happened
 7/30
 
 I need the from email to be ..."from sendgridtesting.uk"
+
+
+8/10
+
+I learned
+
+that not having import maps causes
+
+Uncaught TypeError: The specifier “express” was a bare specifier, but was not remapped to anything. Relative module specifiers must start with “./”, “../” or “/”.
+
+do there isnt a way to properly render them
+
+HAVING THEM causes 
+
+Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at node:url. (Reason: CORS request not http).
+Module source URI is not allowed in this document: “node:url”. localhost:3000
+
+thats LOCALY
+
+on the webpage, I get 
+
+Loading module from “https://sendgridtesting.uk/node_modules/@sendgrid/mail/index.js” was blocked because of a disallowed MIME type (“text/html”).
+sendgridtesting.uk
+
+possibble solutions involve
+webpack
+proper location of import maps

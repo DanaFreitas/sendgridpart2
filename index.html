@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Part 2</title>
     <link rel="stylesheet" href="sendgridpart2.css" type="text/css" />
-
+    <script type="importmap">
+      {
+        "imports": {
+          "express": "./node_modules/express/index.js",
+          "body-parser": "./node_modules/body-parser/index.js",
+          "@sendgrid/mail": "./node_modules/@sendgrid/mail/index.js",
+          "dotenv": "./node_modules/dotenv/config.js"
+        }
+      }
+    </script> 
+    
 </head>
 <body>
     
@@ -43,16 +53,6 @@ window.onerror = (e) => {
    //SyntaxError will be thrown.
 };
 </script>
-  <script type="importmap">
-  {
-    "imports": {
-      "express": "./node_modules/express/index.js",
-      "body-parser": "./node_modules/body-parser/index.js",
-      "@sendgrid/mail": "./node_modules/@sendgrid/mail/index.js",
-      "dotenv": "./node_modules/dotenv/config.js"
-    }
-  }
-</script> 
 <script src="app.js" type="module"></script>
 
 </html>
