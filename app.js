@@ -1,23 +1,21 @@
 
 import url from "node:url";
 import path from "node:path";
-//import { fileURLToPath } from "url";
-
-  //Not sure why the value is never read. 
 import express from "express";
-//import * as express from "express";
 import bodyParser from "body-parser";
 import sgMail from '@sendgrid/mail';
 import process from 'node:process';
 import dotenv from 'dotenv';
 dotenv.config();
+
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename)
 
-////const PORT = 3000; // Defining PORT
+const PORT = 3000; // Defining PORT
   //This was for the localhost. 
 
 const apikey = process.env.API_KEY;
@@ -39,10 +37,10 @@ app.get("/", (req, res) => {
 
 
 
-// app.listen(PORT, () => {
-// console.log(`Server running on port ${PORT}`);
+ app.listen(PORT, () => {
+ console.log(`Server running on port ${PORT}`);
   
-//  })
+  })
 
 
  const msg = {
