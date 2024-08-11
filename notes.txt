@@ -368,3 +368,20 @@ sendgridtesting.uk
 possibble solutions involve
 webpack
 proper location of import maps
+
+moving didnt make difference, still likely best practice
+
+    {
+        "imports": {
+            "lodash": "https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/lodash.min.js"
+        }
+    }
+
+    maybe different way to imput like this? it IS a url
+
+
+    8/10
+
+    Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at node:url. (Reason: CORS request not http).
+Module source URI is not allowed in this document: “node:url”. localhost:3000
+GONE because I added defaults to importmaps
