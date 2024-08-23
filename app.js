@@ -43,7 +43,7 @@ const apikey = process.env.API_KEY;
 app.use(express.static(path.join(__dirname)));
 
 
-app.get("/", (req, res) => {
+app.get("/submit", (req, res) => {
   res.sendFile(path.join(__dirname, import.meta.url));
   res.sendFile(path.join(__dirname, "index.html"));
   res.sendFile(path.join(__dirname, "sendgridpart2.css"));
@@ -82,7 +82,7 @@ app.get("/", (req, res) => {
 
  //This isnt part of the atutomatic trigger. 
 
- app.post("/", (req, res) => {
+ app.post("/submit", (req, res) => {
    sgMail.setApiKey(apikey)
   
    const msg = {
