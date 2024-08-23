@@ -385,3 +385,6 @@ moving didnt make difference, still likely best practice
     Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at node:url. (Reason: CORS request not http).
 Module source URI is not allowed in this document: “node:url”. localhost:3000
 GONE because I added defaults to importmaps
+
+
+issues importing to dotenv

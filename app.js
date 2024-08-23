@@ -1,15 +1,23 @@
 
-import url from "node:url";
-import path from "node:path";
-//import express from "/node_modules/express/index.js";
-import  express  from "express";
-import bodyParser from "body-parser";
-import sgMail from '@sendgrid/mail';
-import process from 'node:process';
+ import url from "node:url";
+ import path from "node:path";
+ import express from "./node_modules/express/index.js";
+ import bodyParser from "./node_modules/body-parser/index.js";
+ import sgMail from './node_modules/@sendgrid/mail/index.js';
+ import process from 'node:process';
+ //import dotenv from './node_modules/dotenv/config.js' ;
 import dotenv from 'dotenv';
+
+
+// import url from "node:url";
+ //import path from "node:path";
+ //import express from "express";
+ //import bodyParser from "body-parser";
+ //import sgMail from '@sendgrid/mail';
+ //import process from 'node:process';
+ //import dotenv from 'dotenv';
+
 dotenv.config();
-
-
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -23,7 +31,7 @@ app.use(function(req, res, next) {
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename)
 
-//const PORT = 3000; // Defining PORT
+////const PORT = 3000; // Defining PORT
   //This was for the localhost. 
 
 const apikey = process.env.API_KEY;
