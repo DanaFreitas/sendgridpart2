@@ -43,7 +43,7 @@ const apikey = process.env.API_KEY;
 app.use(express.static(path.join(__dirname)));
 
 
-app.get("/submit", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, import.meta.url));
   res.sendFile(path.join(__dirname, "index.html"));
   res.sendFile(path.join(__dirname, "sendgridpart2.css"));
@@ -55,7 +55,6 @@ app.get("/submit", (req, res) => {
 
 //app.listen(PORT, () => {
 //console.log(`Server running on port ${PORT}`);
-  
 //})
 
 
