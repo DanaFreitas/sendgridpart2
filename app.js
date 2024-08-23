@@ -1,5 +1,4 @@
-
- import url from "node:url";
+  import url from "node:url";
  import path from "node:path";
  import express from "./node_modules/express/index.js";
  import bodyParser from "./node_modules/body-parser/index.js";
@@ -37,7 +36,7 @@ const __dirname = path.dirname(__filename)
 const apikey = process.env.API_KEY;
 
 
-   sgMail.setApiKey(apikey)
+  // sgMail.setApiKey(apikey)
 
 
 app.use(express.static(path.join(__dirname)));
