@@ -415,3 +415,8 @@ filled out the form. trying to see if the url change helps
 on localhost, I can 1000% get the form to work. The "your email address" will go to whatever the sender wants it to, eg example.com. 
 I need to be able to do it on the website. 
     The css isn't working on that for some reason. 
+
+
+                "process":  "node:process",
+vs 
+            "process":  'node:process'
