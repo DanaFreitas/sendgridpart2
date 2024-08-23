@@ -388,3 +388,23 @@ GONE because I added defaults to importmaps
 
 
 issues importing to dotenv
+
+8/23
+
+...I just needed to fix my account
+
+Now I need to differentiate the "from" of my email and the "from" of the client
+
+
+https://www.twilio.com/en-us/blog/email-contact-form-sendgrid-node-js
+
+
+I got from of the "to". that bit is automatic.
+
+i need reply-to email vs verification email
+reply-to can be thr verification
+
+
+the contact cant be from "their" email, it needs to be from the verified bit. 
+    the submitted is the "reply-to" addresss. 
+    "from" is the verified. 
