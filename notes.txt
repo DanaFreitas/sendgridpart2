@@ -425,3 +425,39 @@ vs
 ALSO
 
 sgMail.setApiKey(apikey) exists in two places
+
+
+tried testing in incognito
+got proper (orange) background, the error was a 405 error
+
+maybe I need to add a url for the submit?
+
+learn how http requests work
+    the error is in the posting itself
+    maybe why localhost isfine 
+
+
+
+    check the api to see if I can do the post.
+    and check cloudflare too  
+
+
+8/24
+
+    the sendgrid activity show nothing is being sent
+
+    the error means that a 405 stops ANYTHING from being sent at all
+
+
+    8/26
+
+    responses
+    
+    Cors?
+
+You still need to call app.listen to make the express app handle requests.
+
+Does your POST method actually return a response?
+
+Check your sendgrid key in prod. Seen that one before!
+
