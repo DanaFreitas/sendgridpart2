@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
 
 
 
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, '104.21.67.224', () => {
 console.log(`Server running on port ${PORT}`);
 })
 
