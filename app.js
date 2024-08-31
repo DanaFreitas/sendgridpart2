@@ -52,6 +52,10 @@ app.get("/", (req, res) => {
 //They key is connecting this...somehow
 
 
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
+  })
+   
 
 //   const msg = {
 //    to:'danarobertfreitas@gmail.com',
@@ -107,8 +111,3 @@ app.get("/", (req, res) => {
 
 
       
-
-//app.listen(PORT, () => {
-//console.log(`Server running on port ${PORT}`);
-//})
-  
