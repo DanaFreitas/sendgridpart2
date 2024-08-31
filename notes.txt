@@ -513,3 +513,5 @@ res.redirect('/');
   need to figure out the balance of the /submit and the first sgmail and what belongs and what doesnt...and maybe the server
 
   find the right deployment. can change. 
+
+  keep trying deployments. there need to be a right one
