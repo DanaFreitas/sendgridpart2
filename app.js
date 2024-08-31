@@ -52,11 +52,6 @@ app.get("/", (req, res) => {
 
 
 
-app.listen(PORT, () => {
-console.log(`Server running on port ${PORT}`);
-})
-
-
 //   const msg = {
 //    to:'danarobertfreitas@gmail.com',
 //    from: 'danarobertfreitas@gmail.com',
@@ -102,3 +97,13 @@ console.log(`Server running on port ${PORT}`);
         console.error(error);
       });   
       });
+
+
+
+
+      
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+  })
+  

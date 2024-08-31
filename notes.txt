@@ -461,3 +461,31 @@ Does your POST method actually return a response?
 
 Check your sendgrid key in prod. Seen that one before!
 
+8/28
+
+Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015. 
+(Reason: CORS request did not succeed). Status code: (null).
+
+None of the “sha512” hashes in the integrity attribute match the content of the subresource. 
+aZz
+
+
+having the post be "/submit" instead of "/" fixes the cars and hash issues.
+
+8/30
+
+var http = require('http')
+http.createServer(app).listen(80)
+https.createServer(options, app).listen(443)
+
+Need to use http module to create server
+    is this needed to send form?
+
+
+could i substitute "submit" for something else?
+    test with something else
+
+app.listen traditionally on the end
+
+
+"/" vs "submit" vs "/other" doesnt matter on the localohsot
