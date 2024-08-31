@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename)
 
-//const PORT = process.env.PORT || 80; // Defining PORT
+const PORT = process.env.PORT || 80; // Defining PORT
   //This was for the localhost. 
 
 
