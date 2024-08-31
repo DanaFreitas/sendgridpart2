@@ -37,7 +37,7 @@ const __dirname = path.dirname(__filename)
 const apikey = process.env.API_KEY;
 
 
-   sgMail.setApiKey(apikey)
+  // sgMail.setApiKey(apikey)
 
 
 app.use(express.static(path.join(__dirname)));
@@ -97,7 +97,7 @@ app.get("/", (req, res) => {
       .catch((error) => {
         console.error(error);
       });   
-    // res.redirect('/');
+     res.redirect('/');
 
 
 
@@ -108,7 +108,7 @@ app.get("/", (req, res) => {
 
       
 
-/////app.listen(PORT, () => {
- //console.log(`Server running on port ${PORT}`);
+//app.listen(PORT, () => {
+//console.log(`Server running on port ${PORT}`);
 //})
   

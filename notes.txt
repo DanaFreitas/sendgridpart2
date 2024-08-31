@@ -511,3 +511,5 @@ res.redirect('/');
   remember the private bit
 
   need to figure out the balance of the /submit and the first sgmail and what belongs and what doesnt...and maybe the server
+
+  find the right deployment. can change. 
