@@ -37,7 +37,7 @@ const __dirname = path.dirname(__filename)
 const apikey = process.env.API_KEY;
 
 
-   sgMail.setApiKey(apikey)
+  // sgMail.setApiKey(apikey)
 
 
 app.use(express.static(path.join(__dirname)));
