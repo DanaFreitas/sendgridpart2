@@ -75,7 +75,7 @@ app.get("/", (req, res) => {
 
  //This isnt part of the atutomatic trigger. 
  
- app.post("/", (req, res) => {
+ app.post("/submit", (req, res) => {
  sgMail.setApiKey(apikey)
  
    const msg = {
@@ -96,6 +96,10 @@ app.get("/", (req, res) => {
       .catch((error) => {
         console.error(error);
       });   
+    //  res.redirect('/');
+
+
+
       });
 
 

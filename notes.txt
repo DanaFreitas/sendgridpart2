@@ -489,3 +489,7 @@ app.listen traditionally on the end
 
 
 "/" vs "submit" vs "/other" doesnt matter on the localohsot
+
+
+res.redirect('/');
+    works to change the url artificially
