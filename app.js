@@ -37,7 +37,7 @@ const PORT = process.env.PORT || 80; // Defining PORT
 const apikey = process.env.API_KEY;
 
 
-  // sgMail.setApiKey(apikey)
+   sgMail.setApiKey(apikey)
 
 
 app.use(express.static(path.join(__dirname)));
@@ -76,7 +76,7 @@ app.get("/", (req, res) => {
 
  //This isnt part of the atutomatic trigger. 
  
- app.post("/", (req, res) => {
+ app.post("/submit", (req, res) => {
  sgMail.setApiKey(apikey)
  
    const msg = {
