@@ -493,3 +493,16 @@ app.listen traditionally on the end
 
 res.redirect('/');
     works to change the url artificially
+
+
+
+  //const PORT = process.env.PORT || 80; // Defining PORT
+  //This was for the localhost. 
+  
+
+//app.listen(PORT, () => {
+ // console.log(`Server running on port ${PORT}`);
+  //})
+  
+
+  This MIGHT be an issue. The load 4 days ago last to work. big change in port declaration or app.listen function
