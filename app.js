@@ -30,14 +30,14 @@ app.use(function(req, res, next) {
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename)
 
-//const PORT = process.env.PORT || 80; // Defining PORT
+const PORT = process.env.PORT || 80; // Defining PORT
   //This was for the localhost. 
 
 
 const apikey = process.env.API_KEY;
 
 
-   sgMail.setApiKey(apikey)
+  // sgMail.setApiKey(apikey)
 
 
 app.use(express.static(path.join(__dirname)));
@@ -108,7 +108,7 @@ app.get("/", (req, res) => {
 
       
 
-//app.listen(PORT, () => {
- // console.log(`Server running on port ${PORT}`);
-  //})
+app.listen(PORT, () => {
+ console.log(`Server running on port ${PORT}`);
+})
   

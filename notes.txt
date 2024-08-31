@@ -506,3 +506,6 @@ res.redirect('/');
   
 
   This MIGHT be an issue. The load 4 days ago last to work. big change in port declaration or app.listen function
+
+
+  remember the private bit
