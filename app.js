@@ -6,7 +6,7 @@
  import process from 'node:process';
  //import dotenv from './node_modules/dotenv/config.js' ;
 import dotenv from 'dotenv';
-
+//import nodemon from "./node_modules/nodemon/index.js";
 
 // import url from "node:url";
  //import path from "node:path";
@@ -24,11 +24,12 @@ const allowedOrigins = ["https://www.sendgridtesting.uk", "https://www.sendgridt
 app.use(function(req, res, next) {
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {    res.header("Access-Control-Allow-Origin", origin);
-  }
+  
   //res.header("Access-Control-Allow-Origin", "www.sendgridtesting.uk"); // update to match the domain you will make the request from
   //res.header("Access-Control-Allow-Origin": *)
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  }next();
 });
 
 const __filename = url.fileURLToPath(import.meta.url);
@@ -37,7 +38,7 @@ const __dirname = path.dirname(__filename)
 
 
 const apikey = process.env.API_KEY;
-
+const mail = process.env.mail;
 
   // sgMail.setApiKey(apikey)
 
@@ -81,10 +82,10 @@ app.get("/", (req, res) => {
  
  app.post("/submit", (req, res) => {
  sgMail.setApiKey(apikey)
- 
+ console.log("Can you see this?")
    const msg = {
-     to: "danarobertfreitas@gmail.com",  //req.body.To
-   from: "danarobertfreitas@gmail.com", 
+     to: mail,  //req.body.To
+   from: mail, 
  replyTo: req.body.From,
       subject: req.body.Subject,
       text: req.body.Message,
@@ -100,7 +101,7 @@ app.get("/", (req, res) => {
       .catch((error) => {
         console.error(error);
       });   
-  //   res.redirect('/');
+     res.redirect('/');
 
 
 
@@ -112,6 +113,11 @@ app.get("/", (req, res) => {
  const PORT = process.env.PORT || 80; // Defining PORT
   
 
-      app.listen(PORT, '0.0.0.0', () => {
+      app.listen(PORT, '0.0.0.0', (err) => {
+
+        if (err) {
+          console.error(`Failed to start server:', ${err}`);
+          process.exit(1);
+        }
        console.log(`Server running on port ${PORT}`);
        })

@@ -520,3 +520,10 @@ res.redirect('/');
   8/31
 
   mime type: determine nature of declaration
+
+
+  9/1
+
+  CORS means the server will accept the info from anywhere besides the server
+
+  
