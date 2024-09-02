@@ -515,3 +515,8 @@ res.redirect('/');
   find the right deployment. can change. 
 
   keep trying deployments. there need to be a right one
+
+
+  8/31
+
+  mime type: determine nature of declaration

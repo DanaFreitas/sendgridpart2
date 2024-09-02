@@ -20,9 +20,13 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+const allowedOrigins = ["https://www.sendgridtesting.uk", "https://www.sendgridtesting.uk/submit"]
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "www.sendgridtesting.uk"); // update to match the domain you will make the request from
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {    res.header("Access-Control-Allow-Origin", origin);
+  }
+  //res.header("Access-Control-Allow-Origin", "www.sendgridtesting.uk"); // update to match the domain you will make the request from
+  //res.header("Access-Control-Allow-Origin": *)
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -30,11 +34,9 @@ app.use(function(req, res, next) {
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename)
 
-const PORT = process.env.PORT || 80; // Defining PORT
-  //This was for the localhost. 
 
 
-//const apikey = process.env.API_KEY;
+const apikey = process.env.API_KEY;
 
 
   // sgMail.setApiKey(apikey)
@@ -52,10 +54,6 @@ app.get("/", (req, res) => {
 //They key is connecting this...somehow
 
 
-app.listen(PORT,
-   '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`);
-  })
    
 
 //   const msg = {
@@ -111,4 +109,9 @@ app.listen(PORT,
 
 
 
-      
+ const PORT = process.env.PORT || 80; // Defining PORT
+  
+
+      app.listen(PORT, '0.0.0.0', () => {
+       console.log(`Server running on port ${PORT}`);
+       })
