@@ -4,23 +4,16 @@
  import bodyParser from "./node_modules/body-parser/index.js";
  import sgMail from './node_modules/@sendgrid/mail/index.js';
  import process from 'node:process';
- //import dotenv from './node_modules/dotenv/config.js' ;
 import dotenv from 'dotenv';
-//import nodemon from "./node_modules/nodemon/index.js";
 
-// import url from "node:url";
- //import path from "node:path";
- //import express from "express";
- //import bodyParser from "body-parser";
- //import sgMail from '@sendgrid/mail';
- //import process from 'node:process';
- //import dotenv from 'dotenv';
 
 dotenv.config();
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const allowedOrigins = ["https://www.sendgridtesting.uk", "https://www.sendgridtesting.uk/submit"]
+
+
 app.use(function(req, res, next) {
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {    res.header("Access-Control-Allow-Origin", origin);
@@ -52,38 +45,12 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "sendgridpart2.css"));
   res.end();
 });
-//They key is connecting this...somehow
 
 
-   
-
-//   const msg = {
-//    to:'danarobertfreitas@gmail.com',
-//    from: 'danarobertfreitas@gmail.com',
-//    subject: 'Message',
-//    text: 'Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.',
-//    html: '<h1>Hello. To all of those who are reading, I hope this test works. It has been many months, but I am sure that I will prevail.</h1>',
-//   };
-//  console.log(typeof 'msg')
-//  console.log(`The message is ${msg}`)
-//   sgMail
-//   .send(msg)
-//   .then((response) => {
-//  console.log(response[0].statusCode);
-//  console.log(response[0].headers);
-//  console.log(msg)    })
-//  .catch((error) => {
-//  console.error(error),
-//  console.error('Error sending email:', error.response.body);
-//  });
-
-
- //This isnt part of the atutomatic trigger. 
- 
- app.post("/submit", (req, res) => {
+ app.post("/", (req, res) => {
  sgMail.setApiKey(apikey)
- console.log("Can you see this?")
-   const msg = {
+
+ const msg = {
      to: mail,  //req.body.To
    from: mail, 
  replyTo: req.body.From,
