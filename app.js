@@ -11,18 +11,21 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const allowedOrigins = ["https://www.sendgridtesting.uk", "https://www.sendgridtesting.uk/submit"]
+//const allowedOrigins = ["https://www.sendgridtesting.uk", "https://www.sendgridtesting.uk/submit"]
 
 
 app.use(function(req, res, next) {
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {    res.header("Access-Control-Allow-Origin", origin);
+
+
+
+//  const origin = req.headers.origin;
+//  if (allowedOrigins.includes(origin)) {    res.header("Access-Control-Allow-Origin", origin);
   
-  //res.header("Access-Control-Allow-Origin", "www.sendgridtesting.uk"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "www.sendgridtesting.uk"); // update to match the domain you will make the request from
   //res.header("Access-Control-Allow-Origin": *)
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  }next();
+  //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  //res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  next();
 });
 
 const __filename = url.fileURLToPath(import.meta.url);
