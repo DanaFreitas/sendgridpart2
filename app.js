@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
 });
 
 
- app.post("/", (req, res) => {
+ app.post("/submit", (req, res) => {
  sgMail.setApiKey(apikey)
 
  const msg = {
