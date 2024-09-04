@@ -69,7 +69,7 @@ app.get("/", (req, res) => {
         res.send(error);
 
       });   
-  //   res.redirect('/');
+     res.redirect('/');
 
 
 
