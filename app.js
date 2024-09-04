@@ -64,9 +64,13 @@ app.get("/", (req, res) => {
       .then((response) => {
         console.log(response[0].statusCode);
         console.log(response[0].headers);
-  console.log(msg)    })
+  console.log(msg)  
+  res.send('ok')
+})
       .catch((error) => {
         console.error(error);
+        res.send(error);
+
       });   
      res.redirect('/');
 
