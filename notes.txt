@@ -526,4 +526,9 @@ res.redirect('/');
 
   CORS means the server will accept the info from anywhere besides the server
 
-  
+  9/4
+
+  goign back to last version that works
+
+  it ISNT the mail, that works fine. it ISNT the submit location
+  ir ISNT import url from node:url

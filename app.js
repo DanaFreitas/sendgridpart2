@@ -4,7 +4,7 @@
  import bodyParser from "./node_modules/body-parser/index.js";
  import sgMail from './node_modules/@sendgrid/mail/index.js';
  import process from 'node:process';
-import dotenv from 'dotenv';
+ import dotenv from 'dotenv';
 
 
 dotenv.config();
@@ -65,6 +65,7 @@ app.get("/", (req, res) => {
         console.log(response[0].statusCode);
         console.log(response[0].headers);
   console.log(msg)  
+  console.log(`mail ${mail} is mail`)
   res.send('ok')
 })
       .catch((error) => {
@@ -81,14 +82,14 @@ app.get("/", (req, res) => {
 
 
 
- const PORT = process.env.PORT || 80; // Defining PORT
+//const PORT = process.env.PORT || 80; // Defining PORT
   
 
-      app.listen(PORT, '0.0.0.0', (err) => {
+  //    app.listen(PORT, '0.0.0.0', (err) => {
 
-        if (err) {
-          console.error(`Failed to start server:', ${err}`);
-          process.exit(1);
-        }
-       console.log(`Server running on port ${PORT}`);
-       })
+       // if (err) {
+    ///      console.error(`Failed to start server:', ${err}`);
+      //    process.exit(1);
+      //  }
+      // console.log(`Server running on port ${PORT}`);
+      // })
