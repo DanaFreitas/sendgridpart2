@@ -532,3 +532,9 @@ res.redirect('/');
 
   it ISNT the mail, that works fine. it ISNT the submit location
   ir ISNT import url from node:url
+
+
+  it was the port messing eerything up.
+
+  but I still have a bunch of errors relating to Cors
+  trying to shift that back to the earlier, simpler version
